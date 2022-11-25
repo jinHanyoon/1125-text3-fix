@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="./css/sub.css">
+    <script src="./js/main.js"></script>
+
+
+    <script>
+        $(document).ready(function(){
+            let current= 0; 
+            $('.nav_menuM').hide()
+
+            $('.log').hide()
+            $('.logBT').click(function(){
+                $('.log').fadeToggle(500)
+            })
+            $('.log').mouseleave(function(){
+                $('.log').fadeOut(500)
+            })
+
+            $('.M_login').click(function(){
+                    $('.nav_menuM').slideToggle(500)
+                })
+                $('.nav_menuM li').hover(function(){
+                    var m=$(this).index()
+                    $(this).addClass('on')
+                    $('.nav_menuM li a').eq(m).addClass('on')
+                },function(){
+                    $(this).removeClass('on')
+                    $('.nav_menuM li a').removeClass('on')
+                }
+                
+                )
+            $('.sub01_button li').eq(0).addClass('on')
+
+            $('.sub01_button li').click(function(){
+                var i= $(this).index()
+             $('.sub01_button li').removeClass('on')
+                 $(this).addClass('on')
+                console.log(i)
+                move(i)
+            })
+            $('.buy').hover(function(){
+                $(this).addClass('on')
+            
+            },function(){
+
+                $(this).removeClass('on')
+            })
+            $('.jjim').hover(function(){
+                $(this).addClass('on')
+            },function(){
+                $(this).removeClass('on')
+            }
+            )
+
+            $('.log_textP').click(function(){
+                $('.log').fadeOut(500)
+                
+            })
+            $('.log_textP').hover(function(){
+                $(this).addClass('on')
+            },
+            function(){
+                $(this).removeClass('on')
+            }
+            
+            )
+            
+            
+            function move(i){
+                if(current == i)return;//같은 버튼을 클릭했을때 실행되지 않게 함 
+                let currentE1 = $('.sub01_view li').eq(current);//슬라이드에서 현재보이는 이미지 li
+                let nextE1 = $('.sub01_view li').eq(i); //슬라이드에서 다음에 보이는 이미지 li
+
+
+                currentE1.css({opacity:1}).stop().animate({opacity:0})
+                nextE1.css({opacity:0}).stop().animate({opacity:1})
+                current =i
+            
+        }
+    })
+    </script>
+</head>
+<body>
+
+    <div id="wrap">
+        <header>
+            <div class="header_in">
+                <h1 class="logo"><a href="/index.html">logo</a></h1>
+                <nav>
+                    <ul class="nav_menu">
+                        <li><a href="./index.html">메인메뉴</a></li>
+                        <li><a href="./index.html">이미지</a></li>
+                        <li><a href="#">상품</a></li>
+                  
+                    </ul>
+                </nav>
+                <div class="login">
+           
+                    <div class="login_bottom">
+                        <a href="#" class="logBT">로그인</a>
+                        <a href="./new.html">회원가입</a>
+                    </div>
+                    <div class="M_login">
+                        <img src="">
+                    </div>
+                </div>
+            </div>
+        </header>
+
+
+        <div class="nav_menuM">
+            <ul class="menuM">
+                <li><a href="./index.html">HOME</a></li>
+
+                <li><a href="#" class="logBT">로그인</a></li>
+                <li><a href="./new.html">회원가입</a>
+                </li>
+         
+            </ul>
+        </div>
+
+
+        <section class="sub01_page">
+            <div class="sub01">
+                <div class="sub01_left">
+                    <div class="sub01_leftI">
+                        <ul class="sub01_view">
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+
+                    </div>
+                <ul class="sub01_button">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+                </div>
+          
+            <div class="sub01_right">
+                <div class="sub01_info">
+                    <div class="sub01_text">
+                        <div class="sub01_box">
+                            <p class="sub01_mainT">MacBook Pro </p>
+                            <a href="#"><span>★★★★★</span>/리뷰보러가기</a>
+                            <p>정상가: 0,000,00원</p>
+
+                        
+                        </div>
+                        <div class="sub01_box">
+                            <div class="sub01_leftinfo">
+                            <p>고객혜택가:</p>
+                            <p>추가혜택가:</p>
+                        </div>
+                        <div class="sub01_rightinfo">
+                            <p>0,000,00원<span class="infot2">신규 가입시 10% 쿠폰 즉시 지급</span></p>
+                            <a href="#">할인카드 확인하기</a>
+                        </div>
+                        </div>
+                        <div class="sub01_box">
+                            <div class="sub01_lastbox">
+                           <h2>Information</h2>
+                           <p>어둠 속 촬영의 한 줄기 빛나이토그래피</p>
+                           <p>당신의 다이내믹한 하루, 이제 밤이 되어도 어둠 속 디테일은 선명하게 유지됩니다.</p>
+                           <p>저조도에서 더 강력한 힘을 발휘합니다.</p>
+                        </div>
+                        </div>
+                        
+                        <div class="sub01_choise">
+                            <button class="buy">구매하기</button>
+                            <button class="jjim">장바구니</button>
+                        </div>
+                    </div>
+                </div>
+            </div>    
+            </div>
+        </section>
+        <section class="sub02_se">
+            <div class="sub02">
+                <div class="sub02_img">
+                    <div class="sub02_main_text">
+                        <h1>달라진 것은 단 하나 , 전부입니다</h1>
+                        <p>IPHONE</p>
+                    </div>
+    
+                </div>
+                <ul class="sub02_content">
+                    <li>
+                        <img src="/image/sub0202 (1).jpg">
+                        <figure>
+                         <a href="#">MAX SERIES</a> 
+                        </figure>
+                    </li>
+                    <li>
+                        <img src="/image/sub0202 (2).jpg">
+                        <figure>
+                            <a href="#">PRO SERIES</a> 
+                           </figure>
+                    </li>
+                    <li>
+                        <img src="/image/sub0202 (4).jpg">
+                        <figure>
+                            <a href="#">SERIES</a> 
+                           </figure>
+                    </li>
+    
+                </ul>
+            </div>
+
+        </section>
+        <section class="sub03_se">
+            <div class="sub03">
+                <div class="sub03_content">
+                    <ul>
+                        <li>
+                            <div class="content_left">
+                                <img src="/image/sub03img03 (1).jpg">
+                            </div>
+                            <div class="content_right">
+                                <div class="right_textBox">
+                                    <h2>STEP01</h2>
+                                    <h1>보안을 지키는것 </h1>
+                                   <P> A15 Bionic과 TrueDepth 카메라는</P>
+                                   <P> 스마트폰 사상 가장 보안성 뛰어난 안면인증</P>
+                                   <P>  방식인 Face ID도 지원합니다 </P>
+                                    
+                                </div>
+                            </div>
+                        </li>
+                        
+                        <li>
+                            <div class="content2_left">
+                                <div class="content2_textBox">
+                                    <h2>STEP02</h2>
+                                    <h1>IPHONE SERIES</h1>
+                                  <p>프로급 성능</p>    
+                                    <p>프로급 디스플레이</p>
+                                    <p>프로급 성능</p>
+
+                                </div>
+                            </div>
+                            <div class="content2_right">
+                                <img src="/image/sub03img03 (2).jpg">
+                            </div>
+        
+        
+                        </li>
+        
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="review">
+                <div class="userInput">
+                    <div class="userText">
+                        <p>사용후기를</p> 
+                        <p>적어주세요!</p> 
+
+                    </div>
+                    <textarea id="review_va"></textarea>
+                    <button id="review_btn" type="button">
+                        저장
+                    </button>
+                </div>
+              
+                    <div id="UserBox">
+                     
+                    </div>
+        </section>
+        <div class="log">
+            <div class="log_text">
+                <p class="log_textP">X</p>
+               <h1>Login</h1>
+               <div class="input_con">
+                <input type="text" placeholder="ID를 입력해주세요" id="login">
+                <input type="password" id="password" placeholder="비밀번호를 입력해주세요">
+               <button id="log_go">로그인</button>
+            </div>
+           </div>
+       </div>
+
+
+    </div>
+    
+        <script src="./js/main2.js"></script>
+    
+</body>
+</html>
