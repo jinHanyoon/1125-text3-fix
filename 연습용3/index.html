@@ -14,6 +14,7 @@
             var scene01Num = ''
             var scene02Num = ''
             var scene03Num = ''
+            $('.page04_info li').hide()
             $('.page02 .left_text').eq(0).addClass('on')
             $('.log').hide()
             $('.logBT').click(function(e){
@@ -37,7 +38,11 @@
 
             $('.nav_menuM').hide()
             $('.page02_button li').eq(0).addClass('on')
+            $('.page02').mouseenter(function(){
+                $('.page04_info li').addClass('out')
 
+            })
+            
             $('.page01_centerList li').hover(function(){
                 $(this).addClass('on')
             },function(){
@@ -82,6 +87,8 @@
                     var page03 =$(this).index()
                     $('.page03_img li').eq(page03).addClass('on')
                     $('.page03_text').eq(page03).addClass('on')
+                    $('.page04_info li').addClass('out')
+
                 },function(){
                     $(this).removeClass('on')
                     $('.page03_text').removeClass('on')
@@ -125,18 +132,26 @@
         }
             })
 
+                $('.page03_se').mouseenter(function(){
+
+                    $('.page04_info li').fadeIn(500)
+                })
             $('.page04_info li').hover(function(){
                 var page04 =$(this).index()
+                $('.page04_info li').eq(page04).removeClass('out')
+
                 $('.page04_hidden').eq(page04).fadeIn()
                 $('.page04_hidden').eq(page04).addClass('on')
                 $('.page04_text h1').eq(page04).addClass('on')
             },function(){
+
                 $('.page04_hidden').fadeOut(100)
                 $('.page04_text h1').removeClass('on')
                 $('.page04_hidden').removeClass('on')
 
             }
             )
+  
 
             /*$(window).scroll(function(){
             let scrollTop = $(window).scrollTop()
